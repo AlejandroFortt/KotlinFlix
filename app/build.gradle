@@ -36,4 +36,7 @@ dependencies {
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.kotlin"
     implementation "androidx.core:core-ktx:$rootProject.ktx"
+
+    // Timber
+    implementation "com.jakewharton.timber:timber:$rootProject.timber"
 }
