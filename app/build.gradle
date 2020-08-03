@@ -33,6 +33,10 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$rootProject.appcompat"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayout"
 
+    // Architecture components
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigation"
+
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.kotlin"
     implementation "androidx.core:core-ktx:$rootProject.ktx"
