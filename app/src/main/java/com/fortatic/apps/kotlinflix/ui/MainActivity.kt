@@ -1,7 +1,8 @@
-package com.fortatic.apps.kotlinflix
+package com.fortatic.apps.kotlinflix.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.fortatic.apps.kotlinflix.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
