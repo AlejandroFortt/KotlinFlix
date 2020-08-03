@@ -1,0 +1,38 @@
+buildscript {
+    ext{
+        // App version
+        versionName = '1.0.0' // X.Y.Z; X = Major, Y = minor, Z = Patch level
+        versionCode = 1000 // XYYZZM; M = Mobile
+
+        // SDK and tools
+        compileSdk = 30
+        minSdk = 21
+        targetSdk = 30
+
+        // App dependencies
+        androidGradlePlugin = "4.0.1"
+        appcompat = '1.2.0'
+        constraintLayout = '1.1.3'
+        kotlin = "1.3.72"
+        ktx = '1.3.1'
+    }
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$androidGradlePlugin"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
