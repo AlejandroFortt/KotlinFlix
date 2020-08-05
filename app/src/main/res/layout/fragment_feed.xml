@@ -58,10 +58,13 @@
             android:id="@+id/rvFeed"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:paddingStart="@dimen/card_margin"
+            android:paddingEnd="@dimen/card_margin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            tools:listitem="@layout/item_movies" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

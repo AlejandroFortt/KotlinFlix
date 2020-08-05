@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="common_padding">16dp</dimen>
-    <dimen name="card_radius">12dp</dimen>
+
+    <!-- Cards -->
+    <dimen name="card_radius">10dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+    <dimen name="card_margin">5dp</dimen>
 </resources>
