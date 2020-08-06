@@ -16,14 +16,34 @@ android {
     }
 
     buildTypes {
+        applicationVariants.all {
+            buildConfigField "String", "API_KEY", "\"" + getApiKey() + "\""
+            buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/movie/\""
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    buildFeatures{
+
+    buildFeatures {
         dataBinding = true
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+static def getApiKey() {
+    Properties props = new Properties()
+    props.load(new FileInputStream(new File('secrets.properties')))
+    return props['API_KEY']
 }
 
 dependencies {
@@ -37,6 +57,11 @@ dependencies {
     // Architecture components
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigation"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.loggingInterceptor"
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.kotlin"
