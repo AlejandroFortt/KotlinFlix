@@ -19,6 +19,7 @@ android {
         applicationVariants.all {
             buildConfigField "String", "API_KEY", "\"" + getApiKey() + "\""
             buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/movie/\""
+            buildConfigField "String", "IMAGE_BASE_URL", "\"https://image.tmdb.org/t/p/\""
         }
         release {
             minifyEnabled false
