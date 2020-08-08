@@ -9,11 +9,11 @@ package com.fortatic.apps.kotlinflix.domain
  * @see network para objetos que analizan o preparan llamadas de red.
  */
 data class Movie(
+    val id: Int,
     val popularity: Double,
     val voteCount: Int,
     val video: Boolean,
     val posterPath: String,
-    val id: Int,
     val adult: Boolean,
     val backdropPath: String,
     val originalLanguage: String,

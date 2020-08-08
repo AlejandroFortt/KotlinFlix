@@ -1,5 +1,6 @@
 package com.fortatic.apps.kotlinflix.network
 
+import com.fortatic.apps.kotlinflix.database.DatabaseMovie
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -10,7 +11,7 @@ import com.google.gson.annotations.SerializedName
  * @see https://martinfowler.com/eaaCatalog/dataTransferObject.html
  */
 data class NetworkMovieContainer(
-    val results: List<NetworkMovie>,
+    @SerializedName("results") val movies: List<NetworkMovie>,
     val page: Int,
     @SerializedName("total_results") val totalResults: Int,
     @SerializedName("total_pages") val totalPages: Int
@@ -32,3 +33,27 @@ data class NetworkMovie(
     val overview: String,
     @SerializedName("release_date") val releaseDate: String
 )
+
+/**
+ * Convertimos resultados de red en objetos de base de datos
+ */
+fun NetworkMovieContainer.asDatabaseModel(): List<DatabaseMovie> {
+    return movies.map {
+        DatabaseMovie(
+            id = it.id,
+            popularity = it.popularity,
+            voteCount = it.voteCount,
+            video = it.video,
+            posterPath = it.posterPath,
+            adult = it.adult,
+            backdropPath = it.backdropPath,
+            originalLanguage = it.originalLanguage,
+            originalTitle = it.originalTitle,
+            genreIds = it.genreIds,
+            title = it.title,
+            voteAverage = it.voteAverage,
+            overview = it.overview,
+            releaseDate = it.releaseDate
+        )
+    }
+}
