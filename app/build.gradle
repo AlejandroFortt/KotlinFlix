@@ -60,6 +60,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigation"
     implementation "androidx.room:room-runtime:$rootProject.room"
+    implementation "androidx.room:room-ktx:$rootProject.room"
     kapt "androidx.room:room-compiler:$rootProject.room"
 
     // Retrofit
