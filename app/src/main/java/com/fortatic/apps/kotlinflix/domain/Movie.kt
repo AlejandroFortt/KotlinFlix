@@ -28,7 +28,7 @@ data class Movie(
      * Url completas, usadas por Glide para cargar los recursos mostrados en la UI.
      */
     val posterUrl: String
-        get() = getImageBaseUrl().plus(posterPath)
+        get() = posterPath.toUrl()
     val backdropUrl: String
-        get() = getImageBaseUrl().plus(backdropPath)
+        get() = backdropPath.toUrl()
 }

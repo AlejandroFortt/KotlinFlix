@@ -2,6 +2,7 @@ package com.fortatic.apps.kotlinflix.network
 
 import com.fortatic.apps.kotlinflix.database.DatabaseMovie
 import com.google.gson.annotations.SerializedName
+import timber.log.Timber
 
 /**
  * NetworkMovie es un DataTransferObject(DTO), los DTO's son responsables de analizar
@@ -24,7 +25,7 @@ data class NetworkMovie(
     @SerializedName("poster_path") val posterPath: String,
     val id: Int,
     val adult: Boolean,
-    @SerializedName("backdrop_path") val backdropPath: String,
+    @SerializedName("backdrop_path") val backdropPath: String?,
     @SerializedName("original_language") val originalLanguage: String,
     @SerializedName("original_title") val originalTitle: String,
     @SerializedName("genre_ids") val genreIds: List<Int>,
@@ -38,6 +39,7 @@ data class NetworkMovie(
  * Convertimos resultados de red en objetos de base de datos
  */
 fun NetworkMovieContainer.asDatabaseModel(): List<DatabaseMovie> {
+    Timber.d("asDatabaseModel: ${movies[0].backdropPath}")
     return movies.map {
         DatabaseMovie(
             id = it.id,
@@ -46,7 +48,7 @@ fun NetworkMovieContainer.asDatabaseModel(): List<DatabaseMovie> {
             video = it.video,
             posterPath = it.posterPath,
             adult = it.adult,
-            backdropPath = it.backdropPath,
+            backdropPath = it.backdropPath ?: "",
             originalLanguage = it.originalLanguage,
             originalTitle = it.originalTitle,
             genreIds = it.genreIds,

@@ -12,7 +12,7 @@ const val LARGE_SIZE = "w400"
 const val XLARGE_SIZE = "w500"
 const val TABLET_SIZE = 7
 
-fun getImageBaseUrl(): String {
+fun String.toUrl(): String {
     val url = BuildConfig.IMAGE_BASE_URL
     val dm = Resources.getSystem().displayMetrics
     val density = dm.densityDpi
@@ -23,7 +23,7 @@ fun getImageBaseUrl(): String {
         in DisplayMetrics.DENSITY_LOW until DisplayMetrics.DENSITY_MEDIUM -> SMALL_SIZE
         else -> MEDIUM_SIZE
     }
-    return url.plus(size)
+    return url.plus(size).plus(this)
 }
 
 fun isTablet(dm: DisplayMetrics): Boolean {
