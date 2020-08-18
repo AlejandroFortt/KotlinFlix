@@ -10,11 +10,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 /**
  * Repositorio para recuperar la lista de "Movies" del servidor y almacenarlos en el disco.
  */
-class MovieRepository(
+class MovieRepository @Inject constructor(
     private val appDatabase: AppDatabase
 ) {
 
