@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion rootProject.compileSdk
@@ -63,6 +64,10 @@ dependencies {
     implementation "androidx.room:room-runtime:$rootProject.room"
     implementation "androidx.room:room-ktx:$rootProject.room"
     kapt "androidx.room:room-compiler:$rootProject.room"
+    implementation "com.google.dagger:hilt-android:$rootProject.hiltAndroid"
+    kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltAndroid"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.hiltViewModel"
+    kapt "androidx.hilt:hilt-compiler:$rootProject.hiltViewModel"
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
