@@ -10,6 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -26,8 +27,15 @@ class MovieRepository @Inject constructor(
 
     suspend fun getMoviesFromNetwork() {
         withContext(Dispatchers.IO) {
-            val moviesFromNetwork = Api.retrofitService.getPlaylist()
-            saveDataInDatabase(moviesFromNetwork.asDatabaseModel())
+            val moviesFromNetwork = try {
+                Api.retrofitService.getPlaylist()
+            } catch (e: Exception) {
+                Timber.e(e)
+                null
+            }
+            moviesFromNetwork?.let {
+                saveDataInDatabase(it.asDatabaseModel())
+            }
         }
     }
 
