@@ -14,8 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/cover_height"
         android:layout_margin="@dimen/card_margin"
+        android:clickable="true"
+        android:focusable="true"
         app:cardCornerRadius="@dimen/card_radius"
-        app:cardElevation="@dimen/card_elevation">
+        app:cardElevation="@dimen/card_elevation"
+        app:rippleColor="@color/ripple_color">
 
         <ImageView
             android:id="@+id/cover_movie"
