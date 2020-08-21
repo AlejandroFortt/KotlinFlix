@@ -19,7 +19,8 @@ class MovieDiffUtil : DiffUtil.ItemCallback<Movie>() {
     }
 }
 
-class MovieAdapter : ListAdapter<Movie, MovieHolder>(MovieDiffUtil()) {
+class MovieAdapter(private val eventListener: MovieActions) :
+    ListAdapter<Movie, MovieHolder>(MovieDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieHolder {
         return MovieHolder.from(parent)
@@ -27,7 +28,7 @@ class MovieAdapter : ListAdapter<Movie, MovieHolder>(MovieDiffUtil()) {
 
     override fun onBindViewHolder(holder: MovieHolder, position: Int) {
         val movie = getItem(position)
-        holder.bind(movie)
+        holder.bind(movie, eventListener)
     }
 
     class MovieHolder private constructor(private val binding: ItemMoviesBinding) :
@@ -44,8 +45,9 @@ class MovieAdapter : ListAdapter<Movie, MovieHolder>(MovieDiffUtil()) {
             }
         }
 
-        fun bind(movie: Movie) {
+        fun bind(movie: Movie, eventListener: MovieActions) {
             binding.movie = movie
+            binding.eventListener = eventListener
             binding.executePendingBindings()
         }
     }
