@@ -10,7 +10,7 @@
         <!-- replace this with a Toolbar if you are going to
             implement real functionality -->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
+            android:id="@+id/constraint_layout"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:paddingStart="@dimen/common_padding"
@@ -51,7 +51,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvFeed"
+            android:id="@+id/feed_rv"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:paddingStart="@dimen/card_margin"
@@ -60,7 +60,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintTop_toBottomOf="@+id/constraint_layout"
             app:spanCount="3"
             tools:listitem="@layout/item_movies" />
 

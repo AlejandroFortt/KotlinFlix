@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.fortatic.apps.kotlinflix.databinding.FragmentFeedBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,8 +33,12 @@ class FeedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val movieAdapter = MovieAdapter()
-        binding.rvFeed.adapter = movieAdapter
+        val movieAdapter = MovieAdapter(MovieActions { movie ->
+            val action = FeedFragmentDirections
+                .toMovieDetail(movie.id)
+            findNavController().navigate(action)
+        })
+        binding.feedRv.adapter = movieAdapter
 
         feedViewModel.movies.observe(viewLifecycleOwner, { listMovies ->
             movieAdapter.submitList(listMovies)
