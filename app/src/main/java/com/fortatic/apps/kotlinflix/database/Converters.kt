@@ -12,10 +12,8 @@ class Converters {
 
     @TypeConverter
     fun fromString(linearValue: String?): List<Int>? {
-        return linearValue?.let { value ->
-            value.split(DELIMITER).map {
-                it.trim().toInt()
-            }
+        return if (linearValue.isNullOrEmpty()) emptyList() else linearValue.split(DELIMITER).map {
+            it.trim().toInt()
         }
     }
 
