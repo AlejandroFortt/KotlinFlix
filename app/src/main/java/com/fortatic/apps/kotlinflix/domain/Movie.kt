@@ -31,4 +31,8 @@ data class Movie(
         get() = posterPath.toUrl()
     val backdropUrl: String
         get() = backdropPath.toUrl()
+
+    val rate = voteAverage.toString()
+    val idmb = voteAverage.fakeIdmb()
+    val votes = voteCount.toString()
 }

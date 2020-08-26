@@ -32,3 +32,5 @@ fun isTablet(dm: DisplayMetrics): Boolean {
     val inches = sqrt(x.plus(y))
     return inches > TABLET_SIZE
 }
+
+fun Double.fakeIdmb() = this.inc().coerceAtMost(9.9).toString().replace(".", ",")
