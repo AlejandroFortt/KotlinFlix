@@ -33,6 +33,6 @@ data class Movie(
         get() = backdropPath.toUrl()
 
     val rate = voteAverage.toString()
-    val idmb = voteAverage.fakeIdmb()
+    val imdb = voteAverage.fakeIMDb()
     val votes = voteCount.toString()
 }
