@@ -7,8 +7,9 @@
     <color name="color_on_surface">#E50914</color>
 
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FAEFF7</color>
 
+    <color name="smoke">#018786</color>
     <color name="green">#42BE00</color>
     <color name="blue">#5A93FF</color>
     <color name="dark_blue">#1366a5</color>

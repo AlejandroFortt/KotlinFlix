@@ -1,9 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="movie"
+            type="com.fortatic.apps.kotlinflix.domain.Movie" />
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
+        android:paddingTop="1dp"
+        android:scrollbars="none">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/movie_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@{movie.title}"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:layout_constraintStart_toStartOf="@+id/materialCardView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Project Power" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/cover_height"
+                android:layout_margin="@dimen/margin_large"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="@dimen/card_detail_radius"
+                app:cardElevation="@dimen/card_detail_elevation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/movie_title"
+                app:rippleColor="@color/ripple_color">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    app:imageUrl="@{movie.backdropUrl}"
+                    tools:ignore="ContentDescription"
+                    tools:src="@tools:sample/backgrounds/scenic" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/overview_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/sinopsis"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/movie_title"
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+            <TextView
+                android:id="@+id/movie_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@{movie.rate}"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/overview_text"
+                app:layout_constraintEnd_toEndOf="@+id/materialCardView"
+                app:layout_constraintTop_toTopOf="@+id/overview_text"
+                tools:text="6,9" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/movie_rate"
+                app:layout_constraintEnd_toStartOf="@+id/movie_rate"
+                app:layout_constraintTop_toTopOf="@+id/movie_rate"
+                app:srcCompat="@drawable/ic_star"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/movie_overview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@{movie.overview}"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/movie_rate"
+                app:layout_constraintStart_toStartOf="@+id/overview_text"
+                app:layout_constraintTop_toBottomOf="@+id/overview_text"
+                tools:text="@tools:sample/lorem/random" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/imdb"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/imbd"
+                app:layout_constraintEnd_toEndOf="@+id/imbd"
+                app:layout_constraintStart_toStartOf="@+id/imbd"
+                app:layout_constraintTop_toBottomOf="@+id/movie_overview" />
+
+            <TextView
+                android:id="@+id/imbd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@{movie.imdb}"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/votes"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:text="8,9" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/votes"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/votes"
+                app:layout_constraintEnd_toEndOf="@+id/votes"
+                app:layout_constraintStart_toStartOf="@+id/votes" />
+
+            <TextView
+                android:id="@+id/votes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@{movie.votes}"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imbd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imbd"
+                app:layout_constraintTop_toTopOf="@+id/imbd"
+                tools:ignore="MissingConstraints"
+                tools:text="265" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/imdb_comp"
+                android:textColor="@color/smoke"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imbd"
+                app:layout_constraintStart_toEndOf="@+id/imbd"
+                app:layout_constraintTop_toTopOf="@+id/imbd" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

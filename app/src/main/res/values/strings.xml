@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">KotlinFlix</string>
     <string name="title_feed">Feed</string>
+    <string name="sinopsis">Sinopsis</string>
+    <string name="votes">Votos</string>
+    <string name="imdb">IMDb</string>
+    <string name="imdb_comp">/ 10</string>
 </resources>

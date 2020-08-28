@@ -33,4 +33,4 @@ fun isTablet(dm: DisplayMetrics): Boolean {
     return inches > TABLET_SIZE
 }
 
-fun Double.fakeIdmb() = this.inc().coerceAtMost(9.9).toString().replace(".", ",")
+fun Double.fakeIMDb() = this.inc().coerceAtMost(9.9).toString().replace(".", ",")

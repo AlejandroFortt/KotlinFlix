@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Common dimensions -->
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+
     <dimen name="common_padding">16dp</dimen>
 
     <!-- Cards -->
@@ -7,4 +12,9 @@
     <dimen name="card_elevation">8dp</dimen>
     <dimen name="card_margin">5dp</dimen>
     <dimen name="cover_height">200dp</dimen>
+
+    <!-- Detail -->
+    <dimen name="card_detail_radius">20dp</dimen>
+    <dimen name="card_detail_elevation">12dp</dimen>
+
 </resources>

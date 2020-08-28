@@ -33,6 +33,10 @@ class MovieDetailFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
         }
 
+        detailViewModel.movie.observe(viewLifecycleOwner, { movie->
+            binding.movie = movie
+        })
+
         return binding.root
     }
 }
