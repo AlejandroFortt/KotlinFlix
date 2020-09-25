@@ -36,7 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="220dp"
             android:layout_margin="@dimen/margin_large"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="@dimen/margin_extra_large"
             android:clickable="true"
             android:focusable="true"
             app:cardCornerRadius="@dimen/card_detail_radius"
